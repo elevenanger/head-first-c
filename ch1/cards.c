@@ -64,18 +64,43 @@ int main()
      * 字符串字面量是一个常量，一旦创建则无法修改
      */
     char card_name[3];
-    // 在命令行或者终端提示的字符串
-    puts("输入牌面：");
-    // 取输入的前两位作为 card_name 的值
-    scanf("%2s", card_name);
-    int val = 0;
-    // 如果第一位为 Q 则给 val 赋值为 10
-    if (card_name[0] == 'Q') val = 10;
-    else if (card_name[0] == 'J') val = 10;
-    else if (card_name[0] == 'K') val = 10;
-    else if (card_name[0] == 'A') val = 11;
-    else val = atoi(card_name);
+    int count = 0;
+    do 
+    {
+        // 在命令行或者终端提示的字符串
+        puts("输入牌面：");
+        // 取输入的前两位作为 card_name 的值
+        scanf("%2s", card_name);
+        int val = 0;
+        // 如果第一位为 Q 则给 val 赋值为 10
+        // 需要多次检查同一个变量时 switch 语句会更方便
+        switch (card_name[0])
+        {
+            case 'J':
+            case 'Q':
+            case 'K':
+                val = 10;
+                break;
+            case 'A':
+                val = 11;
+                break;
+            case 'X':
+                continue;
+            default:
+                val = atoi(card_name);
+                if (val < 1 || val > 10)
+                {
+                    printf("无法识别的值：%i\n", val);
+                    continue;
+                }
+        }
+        if (val >= 3 && val <= 6) 
+            count ++;
+        if (val == 10) 
+            count --;
+        printf("当前总点数是：%i\n", count);
+    } while (card_name[0] != 'X');
     // 格式化字符串 %i 表示一个 int 类型占位符，需要一个 int 类型数值作为参数
-    printf("这张牌的点数是：%i\n", val);
+    printf("总点数是：%i\n", count);
     return 0;
 }
