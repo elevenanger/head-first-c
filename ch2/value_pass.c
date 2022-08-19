@@ -15,8 +15,7 @@
  * @param *lat 是一个指针变量，保存的是一个地址，这个地址中保存的是一个 int 类型变量
  * @param *lon 
  */
-void go_south_east(int *lat, int *lon)
-{
+void go_south_east(int *lat, int *lon) {
     /**
      * * 运算符和 & 运算符相反
      * * 运算符接收一个地址告诉你这个地址中保存的是什么数据
@@ -28,8 +27,7 @@ void go_south_east(int *lat, int *lon)
     *lon = *lon + 1;
 }
 
-int main() 
-{
+int value_pass_main() {
     int latitude = 32;
     int longtitude = -64;
     /**
@@ -37,6 +35,6 @@ int main()
      * &latitude 传递 latitude 变量的内存地址
      */
     go_south_east(&latitude, &longtitude);
-    
+
     printf("精度 %i 纬度 %i", latitude, longtitude);
 }

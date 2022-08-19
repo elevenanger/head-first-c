@@ -20,8 +20,7 @@
  */
 int out_func = 1;
 
-int main()
-{
+int variable_pass_main() {
     /**
      * @brief %p 用户格式化指针地址
      * &out_func 表示变量内存地址 16 进制的值
