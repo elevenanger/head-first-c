@@ -1,2 +1,5 @@
 add_executable(fish aquaria.c)
 add_executable(coffer coffer_decipher.c)
+add_executable(margarita margarita.c)
+add_executable(fruit fruit_shop.c)
+add_executable(survey aquaria_survey.c)
