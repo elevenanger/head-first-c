@@ -1,0 +1,1 @@
+add_executable(output_timestamp output_timestamp.c)
